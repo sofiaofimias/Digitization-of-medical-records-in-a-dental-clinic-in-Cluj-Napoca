@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>MERGE CEVA</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div sec:authorize="isAuthenticated()">
+    Welcome <b><span sec:authentication="name">Username</span></b>
+
+
+
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Logout" />
+    </form>
+</div>
+
+
+<div class="container-fluid text-center">
+
+    <div><a class="h2" th:href="@{/proceduri}">Manage proceduri</a></div>
+    <div><a class="h2" th:href="@{/proceduraAplicata}">Manage procedura aplicata</a></div>
+    <div><a class="h2" th:href="@{/istoricMedical}">Manage istoric medical</a></div>
+    <div><a class="h2" th:href="@{/prescriptieMedicala}">Manage prescriptii medicale</a></div>
+
+</div>
+
+</body>
+</html>
